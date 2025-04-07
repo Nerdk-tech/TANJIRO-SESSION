@@ -1,0 +1,23 @@
+
+{
+    "name": "TANJIRO-SESSION",
+    "description": "Web Session Generator",
+    "logo": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.beebom.com%2Fwp-content%2Fuploads%2F2024%2F09%2Ftanjiro-demon-king.jpg&tbnid=KgwV8H2fiWXKBM&vet=1&imgrefurl=https%3A%2F%2Fbeebom.com%2Fdemon-slayer-tanjiro-demon-king-form-explained%2F&docid=v-WwPrZri3ozyM&w=1250&h=750&hl=en-GB&source=sh%2Fx%2Fim%2Fm1%2F4&kgs=755f391c73ff24b4",
+    "repository": "https://github.com/Nerdk-tech/TANJIRO-SESSION",
+    "keywords": ["Nerdk-tech"],
+    "success_url": "/", 
+    "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
+    "env": {      
+      "PORT": {
+        "description": "Port for web app.4000,5000,3000... any!",
+        "value": "5000",
+        "required": false 
+      },
+      "MESSAGE": {
+        "description": "Just Leave This Blank",
+        "value": "",
+        "required": false 
+      }
+    }   
+
+}
