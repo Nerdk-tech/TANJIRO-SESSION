@@ -6,7 +6,7 @@ const pino = require("pino");
 const { Storage } = require("megajs");
 
 const {
-    default: Malvin_Tech,
+    default: k_Tech,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -82,7 +82,7 @@ router.get('/', async (req, res) => {
             if (!Malvin.authState.creds.registered) {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');
-                const code = await Malvin.requestPairingCode(num);
+                const code = await liberty.requestPairingCode(num);
                 console.log(`Your Code: ${code}`);
 
                 if (!res.headersSent) {
@@ -110,9 +110,9 @@ router.get('/', async (req, res) => {
 
                     console.log(`Session ID: ${sid}`);
 
-                    const session = await Malvin.sendMessage(Malvin.user.id, { text: sid });
+                    const session = await liberty.sendMessage(liberty.user.id, { text: sid });
 
-                    const MALVIN_TEXT = `
+                    const K_TEXT = `
 🎉 *Welcome to Tanjiro v1* 🚀  
 
 🔒 *Your Session ID* is ready!  ⚠️ _Keep it private and secure — dont share it with anyone._ 
@@ -120,24 +120,24 @@ router.get('/', async (req, res) => {
 🔑 *Copy & Paste the SESSION_ID Above*🛠️ Add it to your environment variable: *SESSION_ID*.  
 
 💡 *Whats Next?* 
-1️⃣ Explore all the cool features of botname.
+1️⃣ Explore all the cool features of TANJIRO V1.
 2️⃣ Stay updated with our latest releases and support.
 3️⃣ Enjoy seamless WhatsApp automation! 🤖  
 
 🔗 *Join Our Support Channel:* 👉 [Click Here to Join](https://whatsapp.com/channel/0029VazHPYwBqbr9HjXrc50m)
 
-⭐ *Show Some Love!* Give us a ⭐ on GitHub and support the developer of: 👉 [Malvin King GitHub Repo](https://github.com/kingmalvn/)  
+⭐ *Show Some Love!* Give us a ⭐ on GitHub and support the developer of: 👉 [Nerdk-tech GitHub Repo](https://github.com/Nerdk-tech/)  
 
 🚀 _Thanks for choosing TANJIRO V1— Let the automation begin!_ ✨`;
 
-                    await Malvin.sendMessage(Malvin.user.id, { text: MALVIN_TEXT }, { quoted: session });
+                    await k.sendMessage(liberty.user.id, { text: K_TEXT }, { quoted: session });
 
                     await delay(100);
-                    await Malvin.ws.close();
+                    await k.ws.close();
                     return removeFile('./temp/' + id);
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
                     await delay(10000);
-                    MALVIN_PAIR_CODE();
+                    TANJIRO_PAIR_CODE();
                 }
             });
         } catch (err) {
@@ -150,7 +150,7 @@ router.get('/', async (req, res) => {
         }
     }
 
-    await MALVIN_PAIR_CODE();
+    await TANJIRO_PAIR_CODE();
 });
 
 module.exports = router;
